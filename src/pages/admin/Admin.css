@@ -1,0 +1,197 @@
+body {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-y: hidden;
+}
+
+.App {
+    position: absolute;
+    z-index: 999999;
+    background-color: var(--light);
+    top: -15vh;
+    left: 0;
+    margin: 0;
+    padding: 15vh 0;
+    width: 100vw !important;
+    height: 70vh;
+}
+
+.grid {
+    margin: 50px;
+    margin-top: 100px;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: fit-content;
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .grid {
+        height: 60vh;
+        min-height: fit-content;
+        padding-bottom: 50px;
+        display: flex;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .grid {
+        height: fit-content;
+        display: block;
+    }
+
+    .grid div {
+        margin-bottom: 100px;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    .grid div {
+        margin-bottom: 20px !important;
+    }
+
+}
+
+.div-admin {
+    position: relative;
+    height: 100%;
+    text-align: center;
+}
+
+@media only screen and (min-width: 700px) {
+
+    .div-admin {
+        margin: 10vh;
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px !important;
+        transform: scale(1.2);
+        box-shadow: 0 0 2em rgb(235, 230, 233);
+        border-radius: 17px;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    .div-admin {
+        width: 100% !important;
+        font-size: larger;
+        border-top: .1em solid var(--dark-grey);
+    }
+
+}
+
+.div-admin input,
+.div-admin textarea {
+    position: relative;
+    width: calc(100% - 18px);
+    height: auto;
+    padding: 9px;
+    padding-top: 14px;
+    background-color: transparent;
+    border: .1em solid var(--black);
+}
+
+textarea {
+    resize: none;
+    height: 200px !important;
+    min-height: fit-content;
+}
+
+.div-admin input:active,
+.div-admin input:target,
+.div-admin input:focus,
+.div-admin textarea:active,
+.div-admin textarea:target,
+.div-admin textarea:focus {
+    outline: none;
+    box-shadow: none;
+    color: var(--black);
+}
+
+label {
+    pointer-events: none;
+    position: absolute;
+    padding-left: .4em;
+    padding-right: .4em;
+    font-size: .9em;
+    left: .5em;
+    top: -0.1em !important;
+    transition: 0.2s;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    background-color: var(--light);
+    user-select: none;
+}
+
+.div-admin p {
+    width: 80%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    margin: 25px;
+    text-align: center;
+}
+
+.title-admin {
+    font-size: 1.4em;
+}
+
+.btn-admin {
+    font-size: 1em;
+    margin-bottom: 25px;
+    position: relative;
+    background-color: var(--light);
+    width: 100%;
+    border: .1em solid var(--black);
+    border-radius: 4px;
+    color: var(--black) !important;
+    padding: 9px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all.2s;
+}
+
+.btn-admin:hover {
+    cursor: pointer;
+    background-color: var(--black);
+    border: .1em solid var(--black);
+    color: var(--light) !important;
+    transform: scale(.95);
+}
+
+.btns-admin {
+    display: grid !important;
+}
+
+.btns-admin a {
+    text-decoration: none;
+    padding: 0;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+#message2 {
+    margin-bottom: 75px;
+}
+
+.red {
+    background-color: var(--light) !important;
+    border: .1em solid red !important;
+    color: red !important;
+}
+
+.red:hover {
+    background-color: rgb(250, 190, 200, .5) !important;
+    color: red !important;
+}

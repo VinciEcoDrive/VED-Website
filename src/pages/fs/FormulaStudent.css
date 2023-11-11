@@ -1,0 +1,15 @@
+.fs {
+    background-image: url('../../images/fs_dark.jpg') !important;
+}
+
+.fs-las {
+    background-image: url("../../images/fs_las.jpg");
+}
+
+.fs-fab {
+    background-image: url("../../images/fs_fab.jpg");
+}
+
+.fs-aero {
+    background-image: url("../../images/fs_aero.jpg");
+}

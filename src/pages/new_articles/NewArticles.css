@@ -1,0 +1,170 @@
+.App {
+    top: -5vh !important;
+}
+
+.div-aaa {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    height: 95%;
+    min-height: fit-content;
+    text-align: center;
+}
+
+@media only screen and (min-width: 1100px) {
+
+    .div-aaa {
+        width: 900px !important;
+        transform: scale(1.2);
+    }
+
+}
+
+@media only screen and (max-width: 1100px) {
+
+    .div-aaa {
+        width: 95% !important;
+        font-size: larger;
+    }
+}
+
+.div-aaa input,
+.div-aaa textarea,
+.div-aaa select,
+option {
+    position: relative;
+    width: calc(100% - 18px);
+    height: auto;
+    padding: 9px;
+    padding-top: 14px;
+    background-color: var(--light);
+    border: .1em solid var(--black);
+}
+
+.div-aaa textarea {
+    width: 100% !important;
+}
+
+select {
+    height: 200px !important;
+}
+
+option {
+    appearance: none !important;
+    opacity: 1 !important;
+    border: none;
+    background-color: var(--light) !important;
+    color: var(--black) !important;
+    padding: 9px !important;
+}
+
+select[multiple]:focus option:checked {
+    outline: none !important;
+    filter: hue-rotate(134deg) saturate(2);
+}
+
+.light {
+    color: var(--red) !important;
+}
+
+.div-aaa select {
+    margin: 0;
+    padding-top: 14px;
+    border-radius: 4px;
+    width: 100% !important;
+}
+
+textarea {
+    resize: none;
+    height: 200px !important;
+    min-height: fit-content;
+}
+
+.div-aaa input:active,
+.div-aaa input:target,
+.div-aaa input:focus,
+.div-aaa select:active,
+.div-aaa select:target,
+.div-aaa select:focus,
+.div-aaa textarea:active,
+.div-aaa textarea:target,
+.div-aaa textarea:focus {
+    outline: none;
+    box-shadow: none;
+    color: var(--black);
+}
+
+label {
+    pointer-events: none;
+    position: absolute;
+    padding-left: .4em;
+    padding-right: .4em;
+    font-size: .9em;
+    left: .5em;
+    top: -0.6em;
+    transition: 0.2s;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    background-color: var(--light);
+    user-select: none;
+}
+
+.div-aaa p {
+    width: 80%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    margin: 25px;
+    text-align: center;
+}
+
+.title-admin {
+    font-size: 1.4em;
+}
+
+.btn-admin {
+    position: relative;
+    background-color: var(--light);
+    width: 100%;
+    border: .1em solid var(--black);
+    color: var(--light);
+    padding: 9px;
+}
+
+.btn-admin:hover {
+    cursor: pointer;
+    background-color: var(--black);
+    color: var(--light);
+}
+
+.grey {
+    float: left;
+    width: 100%;
+    border: .1em solid grey !important;
+    color: grey !important;
+    margin-bottom: 0 !important;
+}
+
+.grey:hover {
+    color: var(--light) !important;
+    background-color: grey !important;
+}
+
+#image {
+    font-weight: bold;
+    color: var(--black);
+    background-color: transparent;
+    padding: 1em 0;
+    margin-top: 3vh;
+    border: .1em solid var(--black);
+    border-radius: 3px;
+    width: 100%;
+    line-height: 6vh;
+}
+
+#image:hover {
+    cursor: pointer;
+    opacity: .7;
+}

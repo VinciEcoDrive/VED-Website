@@ -1,0 +1,82 @@
+#Footer {
+    position: relative;
+    height: fit-content;
+    min-height: 40vh;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+
+.part1 {
+    position: relative;
+    height: fit-content;
+    min-height: 350px;
+    width: 100%;
+    background-image: url('../../images/footer.svg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.part1 img,
+.part1 p {
+    margin: 50px auto;
+}
+
+.part1 img {
+    width: 300px;
+    height: auto !important;
+}
+
+.part1 p {
+    width: 200px;
+    min-width: fit-content;
+    line-height: 200%;
+    max-width: 95vw;
+    display: grid;
+}
+
+@media only screen and (min-width: 500px) {
+    .part1 p {
+        text-align: left;
+    }
+}
+
+.part1 p span {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.part1 p a {
+    color: var(--black);
+    font-weight: 300;
+    text-decoration: none;
+    transition: all.2s;
+}
+
+.part1 p a:hover {
+    color: var(--red);
+}
+
+.part2 {
+    height: fit-content;
+    padding: 3vh 0vh;
+    margin: 0 auto;
+    width: 100%;
+    background-color: var(--black);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.part2 span,
+.part2 a {
+    color: var(--light);
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.part2 a:hover {
+    text-decoration: underline;
+}

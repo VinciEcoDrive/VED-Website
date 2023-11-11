@@ -1,0 +1,188 @@
+.carte {
+    position: relative;
+    display: block;
+    width: 1000px;
+    max-width: 95%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--light);
+    border-radius: 12px;
+    box-shadow: 0em 0em 1em rgb(174, 170, 172);
+}
+
+.carte h1 {
+    margin: 0;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    transform: none;
+    border: none;
+    text-align: center;
+}
+
+.carte .imgg {
+    border-radius: 30vh;
+    background: radial-gradient(circle at 100px 100px, var(--red), #000);
+    box-shadow: 0 0 1em inset var(--dark-grey);
+}
+
+.imgg img {
+    height: 100%;
+    width: 100%;
+    border-radius: 30vh;
+}
+
+
+@media only screen and (min-width:1200px) {
+
+    .carte {
+        height: 40vh;
+    }
+
+    .carte h1,
+    .carte .mydate,
+    .carte .mydescription,
+    .social {
+        width: calc(100% - 40vh);
+    }
+
+    .carte .mydescription {
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .social {
+        text-align: left;
+        margin-left: 0;
+    }
+
+    .carte .imgg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 5vh;
+        height: 30vh;
+        width: 30vh;
+        float: right;
+    }
+
+}
+
+@media only screen and (max-width:1200px) {
+
+    .carte {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        height: fit-content;
+    }
+
+    .carte h1,
+    .carte .mydate,
+    .carte .mydescription,
+    .social {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .carte .mydescription {
+        text-align: justify;
+    }
+
+    .social {
+        display: flex;
+    }
+
+    .carte .imgg {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+        height: fit-content;
+    }
+
+}
+
+.carte .mydate {
+    margin-left: 0;
+    text-align: right;
+    font-style: italic;
+}
+
+.carte .mydescription {
+    padding: 1%;
+    font-size: 1.2em;
+}
+
+.social-btn {
+    border: none;
+    background-color: transparent;
+    padding: 12px;
+    margin: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Neo Sans Pro', sans-serif;
+    text-decoration: underline transparent;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.linkedin {
+    width: 100px;
+    color: #0077B5;
+    border-bottom: .1em solid #0077B5;
+    transition: all.4s;
+}
+
+.share {
+    width: 100px;
+    color: var(--red);
+    border-bottom: .1em solid var(--red);
+    transition: all.4s;
+}
+
+.linkedin:hover {
+    cursor: pointer;
+    border-left: 1em solid #0077B5;
+    width: 150px;
+}
+
+.share:hover {
+    cursor: pointer;
+    border-left: 1em solid var(--red);
+    width: 150px;
+}
+
+#ok {
+    display: none;
+    position: fixed;
+    z-index: 258;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0, .4);
+    transition: transform.2s;
+}
+
+.okk {
+    position: absolute;
+    z-index: 259;
+    height: 300px;
+    width: 300px;
+    top: 25vh;
+    left: calc(50vw - 125px);
+    background-color: var(--light);
+    border-radius: 12px;
+    box-shadow: 0em 0em 1em rgb(174, 170, 172);
+    text-align: center;
+    color: #1ec140;
+}
+
+.okk img {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 175px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,212 @@
+#Navbar {
+    position: fixed;
+    padding: 0;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    z-index: 4;
+    opacity: 1;
+    background-color: var(--light);
+    box-shadow: 0 0 .8em var(--black);
+    transition: all.4s;
+}
+
+#Navbar img {
+    margin-left: 2vw;
+    margin-right: 2vw;
+    transform: translateY(4px);
+}
+
+#Navbar img:hover {
+    cursor: pointer !important;
+}
+
+.titles {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 1120px;
+    display: flex;
+}
+
+.titles a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    line-height: 10vh;
+    color: var(--black);
+    font-weight: 400;
+    margin: auto;
+    transition: all.2s;
+}
+
+.titles a:hover {
+    cursor: pointer;
+    color: var(--red);
+    /*border-bottom: .5em solid var(--red);*/
+}
+
+.angle_left {
+    margin: 0;
+    height: 10.1vh;
+    width: 800px;
+    max-width: 11vw;
+}
+
+@media only screen and (max-width:1200px) {
+
+    #Navbar img {
+        margin-top: 1vh;
+    }
+
+    #logo {
+        height: 8vh;
+        width: auto;
+    }
+
+    #hamburger,
+    #cross {
+        position: absolute;
+        top: 0;
+        right: 0px;
+        pointer-events: all !important;
+        user-select: all !important;
+        padding: 2.5vh;
+        height: 5vh;
+        width: 5vh;
+        background-color: transparent;
+        border: none;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #hamburger {
+        background-size: 80%;
+        background-image: url("../../images/hamburger.png");
+    }
+
+    #cross {
+        display: none;
+        background-size: 40%;
+        background-image: url("../../images/cross.png");
+    }
+
+    #hamburger:hover,
+    #cross:hover {
+        cursor: pointer;
+    }
+
+    #lang {
+        position: absolute;
+        right: 95px;
+        height: 10vh;
+    }
+
+    #scrolled {
+        display: none;
+        position: absolute;
+        top: 12vh;
+        width: 100%;
+        padding-left: 17px;
+        text-align: left;
+        background-color: transparent;
+        color: var(--black);
+        align-items: center;
+        vertical-align: middle;
+    }
+
+    #scrolled a {
+        text-decoration: none;
+        color: var(--black);
+        line-height: 300%;
+        font-size: 1.4em;
+    }
+
+    .titles a {
+        display: none;
+    }
+
+    .angle_right {
+        margin: 0;
+        height: 0;
+        width: 0;
+    }
+
+    .angle_left,
+    .angle_center {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+
+    #hamburger,
+    #cross,
+    #scrolled {
+        display: none;
+    }
+
+    .titles a {
+        font-size: 1.4em;
+    }
+
+    .angle_right {
+        margin: 0;
+        height: 10.1vh;
+        width: 800px;
+        max-width: 11vw;
+    }
+
+    .angle_left {
+        margin-left: -100px;
+        transform: skew(25deg);
+        background-color: var(--red);
+    }
+
+    .angle_center {
+        margin: 0;
+        margin-left: -5px;
+        margin-right: 25px;
+        height: 10.1vh;
+        width: 1.5vw;
+        transform: skew(25deg);
+        background-color: var(--black);
+    }
+
+    #lang {
+        transition: all.2s;
+        margin-right: 50px;
+    }
+}
+
+.angle_right {
+    float: right;
+    margin-right: -25px;
+    transform: skew(25deg);
+    background-color: transparent;
+}
+
+#lang {
+    background-color: transparent;
+    border: none;
+    width: 25px;
+    background-image: url('../../images/flag_en.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#lang:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.color-red {
+    color: var(--red) !important;
+}

@@ -1,0 +1,423 @@
+.Home {
+  text-align: center;
+  user-select: text !important;
+  padding-top: 10vh;
+}
+
+.bg {
+  background-image: url("../../images/renduouvert.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(0, 0, 0, .4);
+  background-blend-mode: multiply;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-l,
+.card-r {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 33px;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+}
+
+.card-l img,
+.card-r img {
+  height: 75px;
+  width: auto;
+  margin: 50px auto;
+}
+
+.card-l h2,
+.card-r h2 {
+  font-size: 1.7em;
+  color: var(--light);
+}
+
+.card-l p,
+.card-r p {
+  width: 85% !important;
+  margin: 50px auto !important;
+  display: grid !important;
+  color: var(--light) !important;
+}
+
+.card-l button,
+.card-r button {
+  width: 200px;
+  padding: 10px;
+  margin: 50px auto;
+  background-color: var(--light);
+  border: none;
+  border-radius: 12px;
+  color: var(--black);
+  font-size: 1.2em;
+  font-weight: 500;
+  transition: all.2s;
+}
+
+.card-l button:hover,
+.card-r button:hover {
+  cursor: pointer;
+  opacity: .9;
+}
+
+.card-l {
+  float: left;
+  background-image: url("../../images/renduouvert.jpg");
+  background-color: rgb(200, 47, 62, .9);
+}
+
+.card-r {
+  float: right;
+  background-image: url("../../images/fs_dark.jpg");
+  background-color: rgb(0, 0, 0, .8);
+}
+
+@media only screen and (min-width:1050px) {
+
+  .cards {
+    width: fit-content;
+    max-width: 75%;
+    height: fit-content;
+  }
+
+  .card-l,
+  .card-r {
+    width: 550px;
+    min-width: 400px;
+    max-width: 95vw;
+    height: fit-content;
+    min-height: 800px;
+  }
+
+  .groupe {
+    background-attachment: fixed;
+    height: 70vh !important;
+  }
+}
+
+@media only screen and (max-width:1050px) {
+
+  .cards {
+    width: 95%;
+    height: fit-content;
+  }
+
+  .card-l,
+  .card-r {
+    width: 500px;
+    max-width: 100%;
+    height: fit-content;
+    min-height: 500px;
+    margin-bottom: 0 !important;
+  }
+
+  .groupe {
+    background-attachment: scroll;
+    height: 250px !important;
+  }
+}
+
+@media only screen and (min-width:1300px) {
+
+  .cards {
+    width: fit-content;
+    padding: 0 !important;
+    height: fit-content;
+  }
+
+  .card-l {
+    border-radius: 9px 0 0 9px;
+    width: 490px;
+  }
+
+  .card-r {
+    border-radius: 0 9px 9px 0;
+    width: 490px;
+  }
+
+  .compets {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+    min-width: 60vw;
+    height: fit-content;
+    margin: 50px;
+  }
+
+  .compet-txt {
+    margin: 0;
+    height: 100%;
+  }
+
+  .compet-txt {
+    width: 100%;
+  }
+
+  .compet {
+    width: 45%;
+    min-width: max(550px, 28vw);
+    background-color: rgb(0, 0, 0, .1);
+    background-blend-mode: multiply;
+    height: 400px;
+    margin-bottom: 33px;
+    transition: all.4s;
+  }
+
+  .compet:hover {
+    cursor: pointer;
+    background-color: rgb(0, 0, 0, .4);
+  }
+
+  .compet:hover .tit {
+    padding-top: 150px;
+    border-bottom: .2em solid var(--light);
+  }
+
+  .compet:hover .dat {
+    opacity: 1;
+    margin-top: 0px;
+  }
+
+  .compet:hover .compet-txt div {
+    backdrop-filter: blur(.4em);
+  }
+
+  .tit {
+    font-size: 2em !important;
+    padding-top: 300px;
+    border-bottom: .01em solid transparent;
+  }
+
+  .dat {
+    opacity: 0;
+    margin-top: 100px;
+    transition: opacity .2s !important;
+  }
+}
+
+@media only screen and (max-width:1300px) {
+
+  .card-l {
+    border-radius: 9px 9px 0 0;
+    margin-bottom: 0 !important;
+  }
+
+  .card-r {
+    border-radius: 0 0 9px 9px;
+  }
+
+  .compets {
+    display: block;
+    width: 85%;
+    min-width: none;
+    height: fit-content;
+    margin: 0;
+  }
+
+  .compet-txt {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .compet-txt div {
+    height: 100% !important;
+    padding-bottom: 2em;
+  }
+
+  .compet {
+    width: 100%;
+    height: 300px;
+    min-height: fit-content;
+    background-color: rgb(0, 0, 0, .4);
+    background-blend-mode: multiply;
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+  }
+
+  .tit {
+    font-size: 1.7em !important;
+    padding-top: 180px !important;
+  }
+
+}
+
+.compets {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.compet {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  min-height: fit-content;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0em 0em 1em rgb(174, 170, 172);
+}
+
+.compet-txt {
+  position: relative;
+}
+
+.compet-txt div {
+  position: absolute;
+  border-radius: 12px;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent 45%, rgb(0, 0, 0, .7) 75%);
+  transition: all.2s;
+}
+
+.shell {
+  background-image: url("../../images/shell-2019-2.jpeg") !important;
+}
+
+.albi {
+  background-image: url("../../images/albi-2019.jpg");
+}
+
+.eco-green {
+  background-image: url("../../images/eco-green-2022.jpg");
+}
+
+.fsg {
+  background-image: url("../../images/fsg.jpg");
+}
+
+.tit {
+  font-family: 'Neo Sans Pro', sans-serif !important;
+  font-weight: bold !important;
+  line-height: normal;
+  max-width: 100% !important;
+  text-align: left !important;
+  transition: all.2s;
+}
+
+.dat {
+  padding-bottom: 15px;
+}
+
+.dat i {
+  font-size: smaller;
+}
+
+.tit,
+.dat {
+  text-align: center !important;
+  max-width: fit-content !important;
+  color: var(--light) !important;
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-250px * 7))
+  }
+}
+
+.slider {
+  background: transparent;
+  height: 100px;
+  margin: auto;
+  margin-top: 66px;
+  margin-bottom: 33px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slider::before,
+.slider::after {
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 300px;
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slide-track {
+  animation: scroll 32s linear infinite;
+  display: flex;
+  width: calc(400px * 16);
+}
+
+.slide {
+  height: 100px;
+  width: 400px;
+}
+
+.big-logo {
+  position: absolute;
+  top: 14vh;
+  width: 100%;
+  height: fit-content;
+}
+
+.big-logo img {
+  width: 70%;
+  max-width: 400px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;
+}
+
+.groupe {
+  background-image: url("../../images/equipe.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(0, 0, 0, .4) !important;
+  background-blend-mode: multiply;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.groupe span {
+  opacity: .5 !important;
+}
+
+.taglink {
+  font-size: 0px;
+  opacity: 0;
+  cursor: default;
+  user-select: none;
+  pointer-events: none;
+}

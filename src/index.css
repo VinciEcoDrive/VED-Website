@@ -1,0 +1,113 @@
+:root {
+  --black: rgb(0, 0, 0);
+  --red: rgb(222, 31, 50);
+  --grey: rgb(248, 250, 251);
+  --grey-plus: rgb(241, 241, 241);
+  --dark-grey: rgb(135, 135, 135);
+  --light: rgb(255, 255, 255);
+}
+
+::-moz-selection {
+  background: var(--red);
+  color: var(--light);
+}
+
+::selection {
+  background: var(--red);
+  color: var(--light);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Neo Sans Pro', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
+}
+
+html {
+  overflow-x: hidden !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a,
+p,
+h1,
+h2,
+span {
+  font-family: 'Neo Sans Pro', sans-serif;
+}
+
+img {
+  user-select: none;
+}
+
+.btn-special {
+  border: none;
+  height: 5vh;
+  margin-top: 2.5vh;
+  margin-right: auto;
+  margin-left: auto;
+  padding: .5vh;
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color: var(--red);
+  border-radius: .2em;
+  color: var(--light);
+  transition: all.2s;
+}
+
+.btn-special:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+@media only screen and (max-width:1200px) {
+
+  .btn-special {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.7vh;
+    font-size: 1.2em;
+  }
+
+}
+
+@media only screen and (min-width:1200px) {
+
+  .btn-special {
+    font-size: 1.2em;
+  }
+
+}
+
+a,
+p,
+div,
+button,
+input,
+li,
+span,
+h1,
+h2 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+a:focus,
+p:focus,
+div:focus,
+button:focus,
+input:focus,
+li:focus,
+span:focus,
+h1:focus,
+h2:focus {
+  outline: none;
+}
