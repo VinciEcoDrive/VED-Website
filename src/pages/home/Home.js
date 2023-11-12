@@ -20,6 +20,7 @@ import fs from '../../images/FS_white.png';
 import { useState, useEffect } from "react";
 import './Home.css';
 import '../../App.css';
+import { Link } from 'react-router-dom';
 
 function Home({ base }) {
 
@@ -83,7 +84,7 @@ function Home({ base }) {
             <div className='bg'>
                 <div className='ctn'>
                     <h1>"{text[0][0]}"</h1>
-                    <a href='../actualites'><button className='btn-special'>{text[0][1]}</button></a>
+                    <Link to="/actualites"><button className='btn-special'>{text[0][1]}</button></Link>
                 </div>
             </div>
             <a href="/" class="taglink" name="introduction"> </a>
@@ -116,7 +117,7 @@ function Home({ base }) {
                             <br></br>
                             Nous participons à 3 compétitions majeures : le Shell Eco Marathon, l'Albi Eco Race et le Challenge EcoGreen Gas. Notre objectif avec NOVA, notre dernier prototype est de battre notre précédent record de 3731km/L.
                         </p>
-                        <a href='../presentation-prototype_defficience'><button>En savoir plus</button></a>
+                        <Link to="/presentation-prototype_defficience"><button>En savoir plus</button></Link>
                     </div>
                     <div className='card-r'>
                         <img src={fs} alt="logo-fs"></img>
@@ -131,7 +132,7 @@ function Home({ base }) {
                             <br></br>
                             Nous avons pour objectif de terminer notre prototype et les tests d'ici l'été 2024 pour participer au championnat FSAE dans plusieurs pays tels que l'Allemagne, le Royaume Uni, l'Espagne et bientôt la France.
                         </p>
-                        <a href='../presentation-formula-student'><button>En savoir plus</button></a>
+                        <Link to="/presentation-formula-student"><button>En savoir plus</button></Link>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../App.css';
 import './PrototypeDefficience.css';
 
@@ -16,40 +17,6 @@ function PrototypeDefficience() {
         { titre: "Albi Eco Race", classe: "albi", contenu: "L'Albi Eco Race est une compétition automobile nationale inter-universitaire regroupant des élèves de tous les horizons, allant des lycéens aux étudiants en école d'ingénieurs. Nous avons pour objectif améliorer notre record de tours parcourus, qui est de 3731km/L !" },
         { titre: "Challenge Eco Green", classe: "eco-green", contenu: "Ce challenge s'inspire du Shell Eco-Marathon et regroupe des équipes étudiantes françaises mais aussi européennes. L'objectif est de parcourir 20km avec le minimum d'énergie, pour en déduire ensuite la distance avec l'équivalent d'un litre d'essence, notre record est de 3731km/L." },
     ];
-
-    const all_equipes = [];
-
-    const all_competes = [];
-
-    for (let equipe of equipes) {
-        all_equipes.push(
-            <a href={"../equipe/" + equipe.url}>
-                <div className='equipe'>
-                    <div className={'equipe-img ' + equipe.classe}></div>
-                    <div className='equipe-ctn'>
-                        <div className='equipe-title border-left-red'>
-                            Equipe {equipe.titre}
-                        </div>
-                        {equipe.contenu}
-                    </div>
-                </div>
-            </a>
-        );
-    }
-
-    for (let compet of competes) {
-        all_competes.push(
-            <div className='equipe'>
-                <div className={'equipe-img ' + compet.classe}></div>
-                <div className='equipe-ctn'>
-                    <div className='equipe-title'>
-                        {compet.titre}
-                    </div>
-                    {compet.contenu}
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="">
@@ -75,7 +42,22 @@ function PrototypeDefficience() {
                 <br></br>
                 <h1>3 équipes pour développer le Prototype d'Efficience</h1>
                 <div className='equipes'>
-                    {all_equipes}
+                    {
+                        equipes &&
+                        equipes.map((equipe) => (
+                            <Link to={"/equipe/" + equipe.url} className='link'>
+                                <div className='equipe'>
+                                    <div className={'equipe-img ' + equipe.classe}></div>
+                                    <div className='equipe-ctn'>
+                                        <div className='equipe-title border-left-red'>
+                                            Equipe {equipe.titre}
+                                        </div>
+                                        {equipe.contenu}
+                                    </div>
+                                </div>
+                            </Link>
+                        ))
+                    }
                 </div>
             </div>
             <div className='div-info'>
@@ -83,7 +65,20 @@ function PrototypeDefficience() {
                 <br></br>
                 <h1>Compétitions auxquelles nous participons</h1>
                 <div className='equipes'>
-                    {all_competes}
+                    {
+                        competes &&
+                        competes.map((compet) => (
+                            <div className='equipe'>
+                                <div className={'equipe-img ' + compet.classe}></div>
+                                <div className='equipe-ctn'>
+                                    <div className='equipe-title'>
+                                        {compet.titre}
+                                    </div>
+                                    {compet.contenu}
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>

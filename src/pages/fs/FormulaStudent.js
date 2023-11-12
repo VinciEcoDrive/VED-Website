@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../App.css';
 import './FormulaStudent.css';
 
@@ -11,24 +12,6 @@ function FormulaStudent() {
         { titre: "Fabrication - Composites", classe: "fs-fab", url: "fs-fabrication", contenu: "L'équipe fabrication est responsable de la production physique du véhicule de course, y compris la construction du châssis, la mise en place des composants mécaniques et la réalisation de toutes les parties en composite, telles que les ailerons et les carrosseries. " },
         { titre: "Systèmes Embarqués", classe: "se", url: "systemes-embarques", contenu: "L'équipe systèmes embarqués de la Formula Student est responsable de la conception et de la mise en œuvre des systèmes électroniques du véhicule de course, tels que la gestion de la moteur, les systèmes de mesure et de contrôle de la performance, et les communications de bord." },
     ];
-
-    const all_equipes = [];
-
-    for (let equipe of equipes) {
-        all_equipes.push(
-            <a href={"../equipe/" + equipe.url}>
-                <div className='equipe'>
-                    <div className={'equipe-img ' + equipe.classe}></div>
-                    <div className='equipe-ctn'>
-                        <div className='equipe-title border-left-red'>
-                            Equipe {equipe.titre}
-                        </div>
-                        {equipe.contenu}
-                    </div>
-                </div>
-            </a>
-        );
-    }
 
     return (
         <div className="">
@@ -56,7 +39,22 @@ function FormulaStudent() {
                 <br></br>
                 <h1>4 équipes pour développer la Formula Student</h1>
                 <div className='equipes'>
-                    {all_equipes}
+                    {
+                        equipes &&
+                        equipes.map((equipe) => (
+                            <Link to={"/equipe/" + equipe.url}>
+                                <div className='equipe'>
+                                    <div className={'equipe-img ' + equipe.classe}></div>
+                                    <div className='equipe-ctn'>
+                                        <div className='equipe-title border-left-red'>
+                                            Equipe {equipe.titre}
+                                        </div>
+                                        {equipe.contenu}
+                                    </div>
+                                </div>
+                            </Link>
+                        ))
+                    }
                 </div>
             </div>
         </div>
