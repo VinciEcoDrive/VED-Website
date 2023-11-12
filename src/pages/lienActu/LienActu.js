@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from "react-markdown";
 
-function LienActu() {
+function LienActu({ base }) {
 
     window.scrollTo(0, 0);
 
@@ -16,9 +16,6 @@ function LienActu() {
         Tags: ""
     })
     const { link } = useParams();
-
-    var Airtable = require('airtable');
-    var base = new Airtable({ apiKey: process.env.REACT_APP_API }).base('app2C0wRuRDCffv1l');
 
     useEffect(() => {
         getArticle();

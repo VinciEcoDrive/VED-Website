@@ -2,7 +2,7 @@ import '../../App.css';
 import "../../pages/admin/Admin.css";
 import sha256 from 'crypto-js/sha256';
 
-function Connected() {
+function Connected({ base }) {
 
     document.title = "Admin - Vinci Eco Drive";
 
@@ -13,9 +13,6 @@ function Connected() {
     }, 10);
 
     var user = sessionStorage.getItem("eltx");
-
-    var Airtable = require('airtable');
-    var base = new Airtable({ apiKey: process.env.REACT_APP_API }).base('app2C0wRuRDCffv1l');
 
     function createAdmin() {
         var pseudo1 = document.getElementById("pseudo1").value;
@@ -52,7 +49,7 @@ function Connected() {
     }
 
     return (
-        <div className="App grid">
+        <div className="App grid admin">
             <div className='div-admin' id="inscription">
                 <p className='title-admin' id="message1">
                     Inscrire un Administrateur

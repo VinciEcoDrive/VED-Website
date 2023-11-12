@@ -4,7 +4,7 @@ import './Team.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-function Team() {
+function Team({ base }) {
 
     const [myName, setMyName] = useState("");
     const [me, setMe] = useState({
@@ -21,9 +21,7 @@ function Team() {
     }, [name]);
 
     async function getName() {
-        var Airtable = require('airtable');
-        var base = new Airtable({ apiKey: 'keya3VdVj8ZCkw2f3' }).base('app2C0wRuRDCffv1l');
-
+        
         var lk = myName;
 
         const records = await base('Team')

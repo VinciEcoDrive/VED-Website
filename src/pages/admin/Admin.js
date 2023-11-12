@@ -2,7 +2,7 @@ import '../../App.css';
 import './Admin.css';
 import sha256 from 'crypto-js/sha256';
 
-function Admin() {
+function Admin({ base }) {
 
     document.title = "Admin - Vinci Eco Drive";
 
@@ -12,9 +12,6 @@ function Admin() {
             document.getElementById("message2").textContent = "Vous êtes connecté";
         }
     }, 10);
-
-    var Airtable = require('airtable');
-    var base = new Airtable({ apiKey: process.env.REACT_APP_API }).base('app2C0wRuRDCffv1l');
 
     async function verifyAdmin() {
         var pseudo2 = document.getElementById("pseudo2").value;
@@ -37,7 +34,7 @@ function Admin() {
     }
 
     return (
-        <div className="App withpad grid">
+        <div className="App withpad grid admin">
             <div className='div-admin' id="connexion">
                 <p className='title-admin' id="message2">
                     Connexion

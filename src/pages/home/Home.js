@@ -21,7 +21,7 @@ import { useState, useEffect } from "react";
 import './Home.css';
 import '../../App.css';
 
-function Home() {
+function Home({ base }) {
 
     document.title = "Accueil - Vinci Eco Drive";
     const [text, setText] = useState([["Ouvrons la piste de l'innovation", "Nos actualités", "Derniers articles"], ["Qui sommes nous ?", "Vinci Eco Drive est l'association de construction et de sport automobile du pôle Léonard de Vinci. Crée en 2013, l'association compte aujourd'hui plus de 80 membres actifs provenant de 3 écoles, celle du pôle Léonard de Vinci : l'ESILV, l'EMLV et l'IIM. Vinci Eco Drive compte à ce jour 2 projets : Le prototype d'efficience et la formula student."]]);
@@ -37,9 +37,6 @@ function Home() {
             }
         }
     }
-
-    var Airtable = require('airtable');
-    var base = new Airtable({ apiKey: process.env.REACT_APP_API }).base('app2C0wRuRDCffv1l');
 
     function getArticles() {
 

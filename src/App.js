@@ -16,22 +16,32 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 
 function App() {
+
+  var Airtable = require('airtable');
+
+  try {
+    var base = new Airtable({ apiKey: process.env.REACT_APP_API }).base('app2C0wRuRDCffv1l');
+  }
+  catch (e) {
+    console.log("Airtable API key is not defined", e);
+  }
+
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route exact path="/admin" element={<Admin />}></Route>
-        <Route exact path="/connected" element={<Connected />}></Route>
-        <Route exact path="/admin/new_articles" element={<NewArticles />}></Route>
-        <Route path="/actualites" element={<Actualites />}></Route>
-        <Route path="/actualites/:link" element={<LienActu />}></Route>
+        <Route path="/" element={<Home base={base} />}></Route>
+        <Route path="/admin" element={<Admin base={base} />}></Route>
+        <Route path="/connected" element={<Connected base={base} />}></Route>
+        <Route path="/admin/new_articles" element={<NewArticles base={base} />}></Route>
+        <Route path="/actualites" element={<Actualites base={base} />}></Route>
+        <Route path="/actualites/:link" element={<LienActu base={base} />}></Route>
         <Route path="/equipe/:link" element={<Equipe />}></Route>
         <Route path="/presentation-formula-student" element={<FormulaStudent />}></Route>
         <Route path="/presentation-prototype_defficience" element={<PrototypeDefficience />}></Route>
         <Route path="/partenaires" element={<Partenaires />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/contact/:name" element={<Team />}></Route>
+        <Route path="/contact" element={<Contact base={base} />}></Route>
+        <Route path="/contact/:name" element={<Team base={base} />}></Route>
         <Route path="/mentions-legales" element={<Legal />}></Route>
       </Routes>
       <Footer />

@@ -4,16 +4,13 @@ import "../../App.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Actualites() {
+function Actualites({ base }) {
 
     document.title = "Actualités - Vinci Eco Drive";
 
     const navigate = useNavigate();
 
     const [allArticles, setAllArticles] = useState([]);
-
-    var Airtable = require('airtable');
-    var base = new Airtable({ apiKey: process.env.REACT_APP_API }).base('app2C0wRuRDCffv1l');
 
     var loaded = false;
 

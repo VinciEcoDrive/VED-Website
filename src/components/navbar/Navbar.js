@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
 
+    window.scrollTo(0, 0);
+  
     const navigate = useNavigate();
 
     const [nav, setNav] = useState(false);

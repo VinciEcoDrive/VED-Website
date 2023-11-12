@@ -1,12 +1,9 @@
 import '../../App.css';
 import './Contact.css';
 
-function Contact() {
+function Contact({ base }) {
 
     document.title = "Contact - Vinci Eco Drive";
-
-    var Airtable = require('airtable');
-    var base = new Airtable({ apiKey: process.env.REACT_APP_API }).base('app2C0wRuRDCffv1l');
 
     function sendMessage() {
 

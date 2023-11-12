@@ -4,7 +4,7 @@ import './NewArticles.css';
 import sha256 from 'crypto-js/sha256';
 import * as filestack from 'filestack-js';
 
-function NewArticles() {
+function NewArticles({ base }) {
 
     document.title = "Admin - Vinci Eco Drive";
 
@@ -15,9 +15,6 @@ function NewArticles() {
             window.location.href = "../admin";
         }
     }, 10);
-
-    var Airtable = require('airtable');
-    var base = new Airtable({ apiKey: process.env.REACT_APP_API }).base('app2C0wRuRDCffv1l');
 
     function createArticle() {
         var titre = document.getElementById("titre").value;
