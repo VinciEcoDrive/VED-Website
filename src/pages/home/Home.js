@@ -20,12 +20,16 @@ import fs from '../../images/FS_white.png';
 import { useState, useEffect } from "react";
 import './Home.css';
 import '../../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Home({ base }) {
 
     document.title = "Accueil - Vinci Eco Drive";
+
+    const navigate = useNavigate();
+
     const [text, setText] = useState([["Ouvrons la piste de l'innovation", "Nos actualités", "Derniers articles"], ["Qui sommes nous ?", "Vinci Eco Drive est l'association de construction et de sport automobile du pôle Léonard de Vinci. Crée en 2013, l'association compte aujourd'hui plus de 80 membres actifs provenant de 3 écoles, celle du pôle Léonard de Vinci : l'ESILV, l'EMLV et l'IIM. Vinci Eco Drive compte à ce jour 2 projets : Le prototype d'efficience et la formula student."]]);
+    const [allArticles, setAllArticles] = useState([]);
 
     useEffect(() => {
         init();
@@ -59,14 +63,15 @@ function Home({ base }) {
                 view: "Grid view"
             }).eachPage(function page(records, fetchNextPage) {
                 records.forEach(async function (record) {
-                    var url = await record.get('Image')[0].url;
-                    document.getElementById('articles').innerHTML += "<div class='article' onclick='window.location.href=`" + record.get('Url') + "`'>" +
-                        "<h1 style='background-image: url(" + url + "'>" + record.get('Titre') + "</h1>" +
-                        "<div class='article-ctn'>" +
-                        "<a class='a-tags'>" + record.get('Tags') + "</a>" +
-                        "<p>" + record.get('Contenu').slice(0, 61) + "...</p>" +
-                        "</div>" +
-                        "</div>";
+                    setAllArticles(allArticles => [...allArticles, record]);
+                    // var url = await record.get('Image')[0].url;
+                    // document.getElementById('articles').innerHTML += "<div class='article' onclick='window.location.href=`" + record.get('Url') + "`'>" +
+                    //     "<h1 style='background-image: url(" + url + "'>" + record.get('Titre') + "</h1>" +
+                    //     "<div class='article-ctn'>" +
+                    //     "<a class='a-tags'>" + record.get('Tags') + "</a>" +
+                    //     "<p>" + record.get('Contenu').slice(0, 61) + "...</p>" +
+                    //     "</div>" +
+                    //     "</div>";
                 });
 
                 fetchNextPage();
@@ -77,6 +82,10 @@ function Home({ base }) {
 
             window.nombre = true;
         }
+    }
+
+    function handleClick(url) {
+        navigate(url);
     }
 
     return (
@@ -142,7 +151,21 @@ function Home({ base }) {
                 <span>Articles</span>
                 <br></br>
                 <h1>{text[0][2]}</h1>
-                <div className='cards' id="articles"></div>
+                <div className='cards' id="articles">
+                    {
+                        allArticles &&
+                        allArticles.map((article, index) => (
+                            <div className='article' data-aos='zoom-in' key={index} onClick={() => handleClick("/actualites/" + article.get('Url'))}>
+                                <h1 style={{ backgroundImage: `url(${article.get('Image')[0].url})` }}>{article.get('Titre')}</h1>
+                                <div className='article-ctn'>
+                                    {/* eslint-disable-next-line */}
+                                    <a className='a-tags'>{article.get('Tags')}</a>
+                                    <p>{article.get('Contenu').slice(0, 61)}...</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
             <a href="/" class="taglink" name="competitions"> </a>
             <span></span>
