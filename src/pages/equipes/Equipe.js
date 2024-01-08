@@ -36,7 +36,7 @@ function Equipe({ base }) {
 
   useEffect(() => {
     if (loaded === false) {
-      loaded = true; // To avoid loading the articles twice
+      loaded = true;
 
       var denomination_equipe = "";
       switch (link) {
@@ -124,7 +124,7 @@ function Equipe({ base }) {
       }
       base("Liste")
         .select({
-          maxRecords: 100,
+          maxRecords: 250,
           sort: [
             { field: "Statut", direction: "desc" },
             { field: "Nom", direction: "asc" },
@@ -133,7 +133,6 @@ function Equipe({ base }) {
         })
         .eachPage(function page(records, fetchNextPage) {
           records.forEach(function (record) {
-            console.log(record.get("Technical_Team"));
             if (record.get("Technical_Team") === denomination_equipe) {
               setEquipeInfos((equipeInfos) => ({
                 ...equipeInfos,

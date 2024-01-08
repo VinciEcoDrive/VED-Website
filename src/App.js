@@ -73,11 +73,11 @@ function App() {
         ></Route>
         <Route
           path="/presentation-formula-student"
-          element={<FormulaStudent json={dictionnaire} />}
+          element={<FormulaStudent base={base} json={dictionnaire} />}
         ></Route>
         <Route
           path="/presentation-prototype_defficience"
-          element={<PrototypeDefficience json={dictionnaire} />}
+          element={<PrototypeDefficience base={base} json={dictionnaire} />}
         ></Route>
         <Route
           path="/partenaires"

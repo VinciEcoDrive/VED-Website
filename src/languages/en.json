@@ -1,4 +1,5 @@
 {
+    "langue": "en",
     "slogan": "The race for innovation",
     "nos_actualites": "Our news",
     "nos_derniers_articles": "Our latest news",
@@ -7,9 +8,14 @@
     "titre_accueil": "Home - Vinci Eco Drive",
     "titre_actualites": "News - Vinci Eco Drive",
     "titre_contact": "Contact - Vinci Eco Drive",
+    "titre_prototype_d_efficience": "Efficiency Prototype - Vinci Eco Drive",
+    "titre_formula_student": "Formula Student - Vinci Eco Drive",
     "objectif": "Objective",
     "objectifs": "Objectives",
+    "equipe": "Team",
+    "equipes": "Teams",
     "projets": "PROJECTS",
+    "introduction": "Introduction",
     "competitions": "COMPETITIONS",
     "nos_projets": "Our projects",
     "nos_competitions": "Our competitions",
@@ -34,5 +40,8 @@
     "actualites": "News",
     "mentions_legales": "Legal notices",
     "nous_contacter": "Contact us",
+    "presentation_equipes_pe": "3 teams to develop the Efficiency Prototype",
+    "les_competitions": "The competitions",
+    "presentation_competitions": "The competitions in which we take part",
     "fin": "End"
 }

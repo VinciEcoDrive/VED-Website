@@ -139,7 +139,7 @@ function Home({ base, json }) {
               {json.objectifs_formula_student}
             </p>
             <Link to="/presentation-formula-student">
-              <button>En savoir plus</button>
+              <button>{json.en_savoir_plus}</button>
             </Link>
           </div>
         </div>

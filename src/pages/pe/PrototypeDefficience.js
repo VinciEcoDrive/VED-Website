@@ -1,16 +1,54 @@
 import { Link } from 'react-router-dom';
 import '../../App.css';
 import './PrototypeDefficience.css';
+import { useEffect, useState } from 'react';
 
-function PrototypeDefficience() {
+function PrototypeDefficience({ base, json }) {
 
-    document.title = "Prototype d'Efficience - Vinci Eco Drive";
+    document.title = json.titre_prototype_d_efficience;
 
-    const equipes = [
-        { titre: "Liaisons au sol", classe: "las", url: "pe-liaison-au-sol", contenu: "La liaison au sol (LAS) rassemble les pièces et systèmes qui permettent à un véhicule de se déplacer, se diriger et freiner. Elle compte en général la direction, le freinage, la transmission ainsi que la suspension du véhicule. Dans le cas du Prototype d'Efficience (PE), seule les 3 premières sont intégrées." },
-        { titre: "Fabrication - Composites", classe: "fab", url: "pe-fabrication", contenu: "Dans cette équipe, nous avons pour mission de réaliser tous les éléments extérieurs et intérieurs du prototype d'efficience. Nous travaillons en étroite collaboration avec les autres équipe pour s'assurer que le prototype fonctionne de manière optimale et que tous les éléments sont bien intégrés." },
-        { titre: "Systèmes Embarqués", classe: "se", url: "systemes-embarques", contenu: "L'équipe systèmes embarqués du Prototype d'efficience est responsable de la conception et de la mise en œuvre des systèmes électroniques du véhicule, y compris la gestion du moteur, les systèmes de mesure et de contrôle de la performance, et les communications de bord." },
-    ];
+    const [equipes, setEquipes] = useState([]);
+
+    var loaded = false;
+
+    useEffect(() => {
+        if (loaded === false) {
+            loaded = true;
+            base("equipes")
+                .select({
+                    view: "Grid view",
+                })
+                .eachPage(
+                    function page(records, fetchNextPage) {
+                        records.forEach(function (record) {
+                            if (record.get("projet").includes("pe")) {
+                                // Check if the record is already in the array
+                                if (equipes.find((element) => element.titre === record.get("titre"))) {
+                                    console.log("Element already in array");
+                                }
+                                else {
+                                    var element = {
+                                        titre: json.langue === "fr" ? record.get("titre") : record.get("titre_en"),
+                                        classe: record.get("classe"),
+                                        url: record.get("url"),
+                                        contenu: json.langue === "fr" ? record.get("contenu") : record.get("contenu_en"),
+                                    };
+                                    setEquipes((equipes) => [...equipes, element]);
+                                }
+                            }
+                        });
+                        fetchNextPage();
+                    },
+                    function done(err) {
+                        if (err) {
+                            console.error(err);
+                            return;
+                        }
+                    }
+                );
+            console.log(equipes);
+        }
+    }, []);
 
     const competes = [
         { titre: "Shell Eco Marathon", classe: "shell", contenu: "Le Shell Eco-Marathon est une compétition inter-universitaire rassemblant plus de 4000 étudiants et des spectateurs venant de toute l'Europe. Elle aura lieue cet été et nous sommes heureux de pouvoir y participer avec notre nouveau prototype : NOVA !" },
@@ -18,13 +56,15 @@ function PrototypeDefficience() {
         { titre: "Challenge Eco Green", classe: "eco-green", contenu: "Ce challenge s'inspire du Shell Eco-Marathon et regroupe des équipes étudiantes françaises mais aussi européennes. L'objectif est de parcourir 20km avec le minimum d'énergie, pour en déduire ensuite la distance avec l'équivalent d'un litre d'essence, notre record est de 3731km/L." },
     ];
 
+
+
     return (
         <div className="">
             <div className='bg pe'></div>
             <div className='div-info'>
-                <span className='bigspan'>Prototype d'Efficience</span>
+                <span className='bigspan'>{json.prototype_d_efficience}</span>
                 <br></br>
-                <h1>Introduction</h1>
+                <h1>{json.introduction}</h1>
                 <p data-aos="fade-up">
                     Le <strong>prototype d'efficience</strong> est un projet de longue date de l'association VED, qui vise à créer un véhicule capable de <strong>parcourir la plus grande distance</strong> possible <strong>avec le moins d'énergie</strong> possible. Depuis 2013, les membres de l'association travaillent sur tous les aspects de la <strong>conception du véhicule</strong>, utilisant la <strong>modélisation en CAO</strong> pour développer des <strong>plans de conception</strong> précis et réaliser la <strong>structure en carbone</strong> pour donner au véhicule la <strong>force</strong> et la <strong>légèreté</strong> nécessaires.
                     <br></br>
@@ -38,19 +78,19 @@ function PrototypeDefficience() {
                 </p>
             </div>
             <div className='div-info'>
-                <span>Equipes</span>
+                <span>{json.equipes}</span>
                 <br></br>
-                <h1>3 équipes pour développer le Prototype d'Efficience</h1>
+                <h1>{json.presentation_equipes_pe}</h1>
                 <div className='equipes'>
                     {
-                        equipes &&
+                        (equipes && equipes.length > 0) &&
                         equipes.map((equipe) => (
                             <Link to={"/equipe/" + equipe.url} className='link'>
                                 <div className='equipe'>
                                     <div className={'equipe-img ' + equipe.classe}></div>
                                     <div className='equipe-ctn'>
                                         <div className='equipe-title border-left-red'>
-                                            Equipe {equipe.titre}
+                                            {json.equipe} {equipe.titre}
                                         </div>
                                         {equipe.contenu}
                                     </div>
@@ -61,9 +101,9 @@ function PrototypeDefficience() {
                 </div>
             </div>
             <div className='div-info'>
-                <span>Competitions</span>
+                <span>{json.les_competitions}</span>
                 <br></br>
-                <h1>Compétitions auxquelles nous participons</h1>
+                <h1>{json.presentation_competitions}</h1>
                 <div className='equipes'>
                     {
                         competes &&
