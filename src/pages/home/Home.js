@@ -17,10 +17,11 @@ import danielson from "../../images/partenaires/danielson.png";
 import easy_composite from "../../images/partenaires/easy_composite.png";
 import pe from "../../images/PE_white.png";
 import fs from "../../images/FS_white.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
 import "../../App.css";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "../../components/loading/Loading";
 
 function Home({ base, json }) {
   document.title = json.titre_accueil;
@@ -29,10 +30,13 @@ function Home({ base, json }) {
 
   const [allArticles, setAllArticles] = useState([]);
 
+  var loaded = false;
+
   function getArticles() {
     document.getElementById("articles").innerHTML = "";
 
-    if (window.nombre !== true) {
+    if (loaded === false) {
+      loaded = true; // To avoid loading the articles twice
       var suite = "";
 
       if (localStorage.getItem("ved-language") !== null) {
@@ -62,7 +66,6 @@ function Home({ base, json }) {
             }
           }
         );
-      window.nombre = true;
     }
   }
 
@@ -70,8 +73,12 @@ function Home({ base, json }) {
     navigate(url);
   }
 
+  useEffect(() => {
+    getArticles();
+  }, []);
+
   return (
-    <div className="Home" onLoad={getArticles}>
+    <div className="Home">
       <div className="bg">
         <div className="ctn">
           <h1>{json.slogan}</h1>
@@ -144,7 +151,8 @@ function Home({ base, json }) {
         <br></br>
         <h1>{json.nos_derniers_articles}</h1>
         <div className="cards" id="articles">
-          {allArticles &&
+          {
+            (allArticles && allArticles.length > 0) &&
             allArticles.map((article, index) => (
               <div
                 className="article"
@@ -165,7 +173,8 @@ function Home({ base, json }) {
                   <p>{article.get("Contenu").slice(0, 61)}...</p>
                 </div>
               </div>
-            ))}
+            ))
+          }
         </div>
       </div>
       <a href="/" class="taglink" name="competitions">
