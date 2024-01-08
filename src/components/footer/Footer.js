@@ -2,7 +2,7 @@ import "./Footer.css";
 import cropped_logo from "../../images/cropped_logo.png";
 import { Link } from "react-router-dom";
 
-function Footer() {
+function Footer({ json }) {
 
     // fetch("https://api.instagram.com/v1/users/self/media/recent/?client_id=982737099296605", {
     //     headers: {
@@ -20,19 +20,19 @@ function Footer() {
             <div className="part1">
                 <img src={cropped_logo} alt="cropped_logo"></img>
                 <p>
-                    <span>Liens utiles</span>
-                    <Link to="/">Accueil</Link>
-                    <Link to="/contact">Formulaire de contact</Link>
-                    <Link to="/actualites">Actualités</Link>
-                    <Link to="/presentation-formula-student">Formula Student</Link>
-                    <Link to="/presentation-prototype_defficience">Prototype d'Efficience</Link>
-                    <Link to="/partenaires">Partenaires</Link>
+                    <span>{json.liens_utiles}</span>
+                    <Link to="/">{json.accueil}</Link>
+                    <Link to="/contact">{json.formulaire_de_contact}</Link>
+                    <Link to="/actualites">{json.actualites}</Link>
+                    <Link to="/presentation-formula-student">{json.formula_student}</Link>
+                    <Link to="/presentation-prototype_defficience">{json.prototype_d_efficience}</Link>
+                    <Link to="/partenaires">{json.partenaires}</Link>
                 </p>
             </div>
             <div className="part2">
                 <span>© Vinci Eco Drive - 2023</span>
-                <Link to="/mentions-legales">Mentions légales</Link>
-                <Link to="/contact">Nous contacter</Link>
+                <Link to="/mentions-legales">{json.mentions_legales}</Link>
+                <Link to="/contact">{json.nous_contacter}</Link>
             </div>
         </div>
     );

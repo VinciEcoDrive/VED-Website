@@ -1,11 +1,11 @@
 import "./Social.css";
 
-function Social() {
+function Social({ json }) {
 
     return (
         <div id="Social">
             <div className="social-content">
-                <h1>Suis nous sur les réseaux sociaux</h1>
+                <h1>{json.suis_nous_sur_les_réseaux_sociaux}</h1>
                 <div className="social-btns" data-aos="zoom-in">
                     <a href="https://www.instagram.com/vinciecodrive/" target="_blank" rel="noreferrer"><i class="fa fa-instagram"></i></a>
                     <a href="https://www.facebook.com/vinciecodrive/" target="_blank" rel="noreferrer"><i class="fa fa-facebook"></i></a>

@@ -100,7 +100,7 @@ function App() {
           element={<Home base={base} json={dictionnaire} />}
         ></Route>
       </Routes>
-      <Footer />
+      <Footer json={dictionnaire} />
     </Router>
   );
 }

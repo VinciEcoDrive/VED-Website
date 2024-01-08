@@ -23,7 +23,7 @@ import "../../App.css";
 import { Link, useNavigate } from "react-router-dom";
 
 function Home({ base, json }) {
-  document.title = "Accueil - Vinci Eco Drive";
+  document.title = json.titre_accueil;
 
   const navigate = useNavigate();
 
@@ -96,8 +96,8 @@ function Home({ base, json }) {
       <div className="div-info">
         <span>INTRODUCTION</span>
         <br></br>
-        <h1>{}</h1>
-        <p data-aos="fade-up">{}</p>
+        <h1>{json.qui_sommes_nous}</h1>
+        <p data-aos="fade-up">{json.presentation_ved}</p>
       </div>
       <a href="/" class="taglink" name="projets">
         {" "}
@@ -106,49 +106,37 @@ function Home({ base, json }) {
       <div className="div-info">
         <span>{json.projets}</span>
         <br></br>
-        <h1>Nos projets</h1>
+        <h1>{json.nos_projets}</h1>
         <div className="cards">
           <div className="card-l">
             <img src={pe} alt="logo-pe"></img>
-            <h2>Prototype d'efficience</h2>
+            <h2>{json.prototype_d_efficience}</h2>
             <p>
-              Présentation
+              {json.presentation}
               <br></br>
-              Ce projet est le projet phare de notre association, présent depuis
-              sa création en 2013, nous en somme aujourd'hui a notre 7ème
-              châssis. Son concept est de produire le véhicule électrique le
-              plus efficient possible.
+              {json.presentation_prototype_d_efficience}
             </p>
             <p>
-              Nos objectifs
+              {json.nos_objectifs}
               <br></br>
-              Nous participons à 3 compétitions majeures : le Shell Eco
-              Marathon, l'Albi Eco Race et le Challenge EcoGreen Gas. Notre
-              objectif avec NOVA, notre dernier prototype est de battre notre
-              précédent record de 3731km/L.
+              {json.objectifs_prototype_d_efficience}
             </p>
             <Link to="/presentation-prototype_defficience">
-              <button>En savoir plus</button>
+              <button>{json.en_savoir_plus}</button>
             </Link>
           </div>
           <div className="card-r">
             <img src={fs} alt="logo-fs"></img>
-            <h2>Formula Student</h2>
+            <h2>{json.formula_student}</h2>
             <p>
-              Présentation
+              {json.presentation}
               <br></br>
-              La Formula Student est le second projet de notre association,
-              présent depuis 2018, nous sommes actuellement a notre premier
-              châssis. La formula student est une monoplace électrique qui a
-              pour but d'être rapide et agile.
+              {json.presentation_formula_student}
             </p>
             <p>
-              Nos objectifs
+              {json.nos_objectifs}
               <br></br>
-              Nous avons pour objectif de terminer notre prototype et les tests
-              d'ici l'été 2024 pour participer au championnat FSAE dans
-              plusieurs pays tels que l'Allemagne, le Royaume Uni, l'Espagne et
-              bientôt la France.
+              {json.objectifs_formula_student}
             </p>
             <Link to="/presentation-formula-student">
               <button>En savoir plus</button>
@@ -161,9 +149,9 @@ function Home({ base, json }) {
       </a>
       <span></span>
       <div className="div-info">
-        <span>Articles</span>
+        <span>{json.articles}</span>
         <br></br>
-        <h1>{}</h1>
+        <h1>{json.nos_derniers_articles}</h1>
         <div className="cards" id="articles">
           {allArticles &&
             allArticles.map((article, index) => (
@@ -194,16 +182,16 @@ function Home({ base, json }) {
       </a>
       <span></span>
       <div className="div-info">
-        <span>Competitions</span>
+        <span>{json.competitions}</span>
         <br></br>
-        <h1>Nos compétitions</h1>
+        <h1>{json.nos_competitions}</h1>
         <div className="compets">
           <div className="compet shell" data-aos="zoom-in">
             <div className="compet-txt">
               <div>
                 <p className="tit">Shell Eco Marathon</p>
                 <p className="dat">
-                  Mai 2023
+                  {json.mai} 2023
                   <br></br>
                   <i>Nogaro, France</i>
                 </p>
@@ -215,7 +203,7 @@ function Home({ base, json }) {
               <div>
                 <p className="tit">Albi Eco Race</p>
                 <p className="dat">
-                  Mai 2023
+                  {json.mai} 2023
                   <br></br>
                   <i>Albi, France</i>
                 </p>
@@ -227,7 +215,7 @@ function Home({ base, json }) {
               <div>
                 <p className="tit">Challenge Eco Green</p>
                 <p className="dat">
-                  Mai 2023
+                  {json.mai} 2023
                   <br></br>
                   <i>Fay-de-Bretagne, France</i>
                 </p>
@@ -239,7 +227,7 @@ function Home({ base, json }) {
               <div>
                 <p className="tit">FS Germany</p>
                 <p className="dat">
-                  Objectif 2024
+                  {json.objectif} 2024
                   <br></br>
                   <i>Hockenheim, Allemagne</i>
                 </p>
@@ -253,16 +241,16 @@ function Home({ base, json }) {
       </a>
       <span></span>
       <div className="div-info groupe">
-        <span>Notre equipe</span>
+        <span>{json.notre_equipe}</span>
       </div>
       <a href="/" class="taglink" name="partenaires">
         {" "}
       </a>
       <span></span>
       <div className="div-info">
-        <span>Partenaires</span>
+        <span>{json.partenaires}</span>
         <br></br>
-        <h1>Nos partenaires</h1>
+        <h1>{json.nos_partenaires}</h1>
         <div class="slider">
           <div class="slide-track">
             <div class="slide">
@@ -326,7 +314,7 @@ function Home({ base, json }) {
           </div>
         </div>
       </div>
-      <Social />
+      <Social json={json} />
     </div>
   );
 }
