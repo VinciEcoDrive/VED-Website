@@ -3,6 +3,7 @@ import "../home/Home.css";
 import "../../App.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/loading/Loading";
 
 function Actualites({ base }) {
 
@@ -78,7 +79,7 @@ function Actualites({ base }) {
             </div>
             <div className='div-info bg-white' id="articles">
                 {
-                    allArticles &&
+                    (allArticles && allArticles.length > 0) ?
                     allArticles.map((article, index) => (
                         <div className='article' data-aos='zoom-in' key={index} onClick={() => handleClick(article.get('Url'))}>
                             <h1 style={{ backgroundImage: `url(${article.get('Image')[0].url})` }}>{article.get('Titre')}</h1>
@@ -89,6 +90,8 @@ function Actualites({ base }) {
                             </div>
                         </div>
                     ))
+                    :
+                    <Loading />
                 }
             </div>
         </div >

@@ -1,9 +1,9 @@
 import '../../App.css';
 import './Contact.css';
 
-function Contact({ base }) {
+function Contact({ base, json }) {
 
-    document.title = "Contact - Vinci Eco Drive";
+    document.title = json.titre_contact;
 
     function sendMessage() {
 
@@ -14,7 +14,7 @@ function Contact({ base }) {
         var message = document.getElementById("message").value;
 
         if (prenom === "" || nom === "" || email === "" || message === "") {
-            alert("Veuillez remplir tous les champs obligatoires");
+            alert(json.veuillez_remplir_tous_les_champs_obligatoires);
         }
         else {
             base('messages').create([
@@ -58,43 +58,43 @@ function Contact({ base }) {
         <div>
             <div className='div-info no-div'></div>
             <div className='div-info div-first'>
-                <span>Contact</span>
+                <span>{json.contact}</span>
                 <br></br>
-                <h1>Formulaire de contact</h1>
+                <h1>{json.formulaire_de_contact}</h1>
                 <div className='contact'>
                     <div className='pleft'>
-                        <h1>Contactez nous</h1>
+                        <h1>{json.contactez_nous}</h1>
                         <p>
-                            Vous avez une question ? Une demande ?
+                            {json.vous_avez_une_question_une_demande}
                             <br></br>
-                            N'hésitez pas à remplir ce formulaire ! Nous vous répondrons dans les plus brefs délais.
+                            {json.n_hesitez_pas_a_remplir_ce_formulaire} {json.nous_vous_repondrons_dans_les_plus_brefs_delais}
                         </p>
                         <div className='form'>
                             <div className='form-element-45'>
-                                <label className='label'>Prénom*</label>
+                                <label className='label'>{json.prenom}*</label>
                                 <input type="text" placeholder='Entrez votre prénom' id="prenom" pattern="[A-Za-z\s-]+"></input>
                             </div>
                             <div className='form-element-45'>
-                                <label className='label'>Nom*</label>
+                                <label className='label'>{json.nom}*</label>
                                 <input type="text" placeholder='Entrez votre nom' id="nom" pattern="[A-Za-z\s-]+"></input>
                             </div>
                             <div className='form-element-100'>
-                                <label className='label'>Email*</label>
+                                <label className='label'>{json.email}*</label>
                                 <input type="email" placeholder='email@email.com' id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"></input>
                             </div>
                             <div className='form-element-100'>
-                                <label className='label'>Téléphone</label>
+                                <label className='label'>{json.telephone}</label>
                                 <input type="tel" placeholder='+33 6 00 00 00 00' id="telephone" pattern="^\d{10,15}$"></input>
                             </div>
                             <div className='form-element-100'>
-                                <label className='label'>Message*</label>
+                                <label className='label'>{json.message}*</label>
                                 <textarea placeholder='Votre message' spellCheck="false" id="message"></textarea>
                             </div>
-                            <button onClick={sendMessage}>ENVOYER VOTRE MESSAGE</button>
+                            <button onClick={sendMessage}>{json.envoyer_votre_message}</button>
                         </div>
                     </div>
                     <div className='pright'></div>
-                    <div id='message-form'>Message envoyé avec succès !</div>
+                    <div id='message-form'>{json.message_envoye_avec_succes}</div>
                 </div>
             </div>
         </div>

@@ -1,11 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import './Loading.css';
 
 const Loading = () => {
     return (
-        <LoadingWrapper>
-            <Loader />
-        </LoadingWrapper>
+        <p className='loading'><i className="fa fa-spinner fa-spin"></i></p>
     );
 };
 

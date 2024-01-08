@@ -1,0 +1,13 @@
+.loading {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center !important;
+    padding: 50px 0;
+    font-size: 3em;
+}
+
+.loading i {
+    color: var(--red);
+    margin: 0 auto;
+}

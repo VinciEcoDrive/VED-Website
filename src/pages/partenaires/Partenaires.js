@@ -29,25 +29,25 @@ import grille from '../../images/grille-partenariats.png';
 import './Partenaires.css';
 import '../../App.css';
 
-function Partenaires() {
+function Partenaires({ json }) {
 
-    document.title = "Partenaires - Vinci Eco Drive";
+    document.title = json.titre_partenaires;
 
     return (
         <div className="">
             <div className='bg partenaires'></div>
             <div className='div-info'>
-                <span>Partenaires</span>
+                <span>{json.partenaires}</span>
                 <br></br>
-                <h1>Nos partenaires</h1>
+                <h1>{json.nos_partenaires}</h1>
                 <p className='lineheight200'>
-                    De multiples entreprises <strong>nous font confiance</strong> et nous en sommes ravis. Nous avons à coeur de les satisfaire en offrant <strong>transparence</strong> et <strong>sérieux</strong> au sein de nos différents partenariats. Ces partenariats peuvent prendre plusieurs formes : dons de <strong>logiciels</strong>, de <strong>materiel</strong>, soutien <strong>financier</strong> ou bien <strong>mécénats de compétences</strong>.
+                    {json.partenaires_description}
                 </p>
             </div>
             <div className='div-info'>
-                <span>Officiel</span>
+                <span>{json.officiel}</span>
                 <br></br>
-                <h1>Partenaire Officiel</h1>
+                <h1>{json.partenaire_officiel}</h1>
                 <table>
                     <tr>
                         <th></th>
@@ -59,9 +59,9 @@ function Partenaires() {
                 </table>
             </div>
             <div className='div-info'>
-                <span>Elite</span>
+                <span>{json.elite}</span>
                 <br></br>
-                <h1>Partenaires Elite</h1>
+                <h1>{json.partenaire_elite}</h1>
                 <table>
                     <tr>
                         <th>
@@ -77,9 +77,9 @@ function Partenaires() {
                 </table>
             </div>
             <div className='div-info'>
-                <span>Premium</span>
+                <span>{json.premium}</span>
                 <br></br>
-                <h1>Partenaires Premium</h1>
+                <h1>{json.partenaire_premium}</h1>
                 <table>
                     <tr className='tr-mini'>
                         <th className='small small-th'>
@@ -106,9 +106,9 @@ function Partenaires() {
                 </table>
             </div>
             <div className='div-info'>
-                <span>Classique</span>
+                <span>{json.classique}</span>
                 <br></br>
-                <h1>Partenaires Classique</h1>
+                <h1>{json.partenaire_classique}</h1>
                 <table>
                     <tr className='tr-mini'>
                         <th className='small small-th'>
@@ -132,9 +132,9 @@ function Partenaires() {
                 </table>
             </div>
             <div className='div-info'>
-                <span>Confiance</span>
+                <span>{json.confiance}</span>
                 <br></br>
-                <h1>Ils nous ont fait confiance</h1>
+                <h1>{json.partenaire_confiance}</h1>
                 <table>
                     <tr className='tr-mini'>
                         <th className='small small-th'>
@@ -183,42 +183,42 @@ function Partenaires() {
                 </table>
             </div>
             <div className='div-info'>
-                <span>Soutenir</span>
+                <span>{json.soutenir}</span>
                 <br></br>
-                <h1>Pourquoi nous soutenir ?</h1>
+                <h1>{json.pourquoi_nous_soutenir}</h1>
                 <p className='lineheight200'>
-                    Communication interne et externe : Logo sur notre prototype, logo sur nos supports de communication, logo sur notre site internet, publications sur nos réseaux sociaux…
+                    {json.pourquoi_nous_soutenir_paragraph1}
                     <br></br>
-                    Organisation d'évènements internes au pôle regroupant les 7500 étudiants des trois écoles : ESILV (école d'ingénieur), EMLV (école de management) et IIM (école de multimédia).
+                    {json.pourquoi_nous_soutenir_paragraph2}
                     <br></br>
-                    Organisation d'évènements externes dans votre entreprise ou lors de showrooms/salons.
+                    {json.pourquoi_nous_soutenir_paragraph3}
                     <br></br>
-                    Rencontrer de nouveaux talents : diffusion d'offres de stages pour les trois écoles du Pôle Léonard de Vinci.
+                    {json.pourquoi_nous_soutenir_paragraph4}
                 </p>
             </div>
             <div className='div-info'>
-                <span>Soutenir</span>
+                <span>{json.soutenir}</span>
                 <br></br>
-                <h1>Comment nous soutenir ?</h1>
+                <h1>{json.comment_nous_soutenir}</h1>
                 <p className='lineheight200'>
-                    3 types de partenariats :
+                    {json.comment_nous_soutenir_paragraph1}
                     <br></br>
-                    - Partenariat financier
+                    {json.comment_nous_soutenir_paragraph2}
                     <br></br>
-                    - Partenariat matériel
+                    {json.comment_nous_soutenir_paragraph3}
                     <br></br>
-                    - Partenariat sous forme de mécénat de compétences
+                    {json.comment_nous_soutenir_paragraph4}
                 </p>
             </div>
             <div className='div-info'>
-                <span>Soutenir</span>
+                <span>{json.soutenir}</span>
                 <br></br>
-                <h1>Les niveaux de partenariats</h1>
+                <h1>{json.les_niveaux_de_partenariats}</h1>
                 <div className='big-width'>
                     <p>
-                        Devenez le prochain partenaire de Vinci Eco Drive ! Vous ferez d'abord partie d'une équipe de jeunes étudiants passionnés par l'automobile et alimentés par la volonté d'innover. Nous vous proposons une communication professionnelle et personnalisée, vous rapprochant des ingénieurs, managers et designers de demain.
+                        {json.les_niveaux_de_partenariats_paragraph1}
                         <br></br>
-                        Nous proposons cinq offre annuelle mais nous pouvons tout à fait réajuster ces offre en fonction de vos besoins et spécificités.
+                        {json.les_niveaux_de_partenariats_paragraph2}
                     </p>
                     <p>
                         <img src={grille} alt="grille-partenariats"></img>
@@ -226,9 +226,9 @@ function Partenaires() {
                 </div>
             </div>
             <div className='div-info'>
-                <span>Soutenir</span>
+                <span>{json.soutenir}</span>
                 <br></br>
-                <h1>Découvrir notre dossier partenaire</h1>
+                <h1>{json.decouvrir_notre_dossier_partenaire}</h1>
                 <div className='big-width'>
                     <button className='mybutton btn-black'>Dossier partenaires VED francais</button>
                     <br></br>

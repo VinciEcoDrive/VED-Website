@@ -51,14 +51,6 @@ function Home({ base, json }) {
           function page(records, fetchNextPage) {
             records.forEach(async function (record) {
               setAllArticles((allArticles) => [...allArticles, record]);
-              // var url = await record.get('Image')[0].url;
-              // document.getElementById('articles').innerHTML += "<div class='article' onclick='window.location.href=`" + record.get('Url') + "`'>" +
-              //     "<h1 style='background-image: url(" + url + "'>" + record.get('Titre') + "</h1>" +
-              //     "<div class='article-ctn'>" +
-              //     "<a class='a-tags'>" + record.get('Tags') + "</a>" +
-              //     "<p>" + record.get('Contenu').slice(0, 61) + "...</p>" +
-              //     "</div>" +
-              //     "</div>";
             });
 
             fetchNextPage();
@@ -70,7 +62,6 @@ function Home({ base, json }) {
             }
           }
         );
-
       window.nombre = true;
     }
   }
